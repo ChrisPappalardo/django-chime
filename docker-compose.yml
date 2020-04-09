@@ -1,0 +1,19 @@
+version: '3'
+
+volumes:
+  data: {}
+
+services:
+  django_chime:
+    build:
+      context: .
+      dockerfile: ./compose/django_chime/Dockerfile
+    environment:
+      - LC_ALL=C.UTF-8
+      - LANG=C.UTF-8
+    #env-file:
+    #  - ./.envs/.production/.django_chime
+    image: django_chime
+    volumes:
+      - data:/data
+    #command: /start

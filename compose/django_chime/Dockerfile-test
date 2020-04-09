@@ -1,0 +1,29 @@
+FROM python:3
+ENV PYTHONUNBUFFERED 1
+ENV DEBIAN_FRONTEND noninteractive
+ENV TERM xterm
+
+# update, upgrade, and install packages
+RUN apt-get update \
+    && apt-get upgrade -y \
+    && apt-get install -y apt-utils
+
+# configure apt-utils (fixes warnings)
+RUN dpkg-reconfigure apt-utils
+
+# set some useful defaults
+RUN echo "alias ls='ls --color'" >> /etc/bash.bashrc
+RUN echo "alias grep='grep --color=auto'" >> /etc/bash.bashrc
+
+# download get-pip and install
+RUN wget -P /tmp https://bootstrap.pypa.io/get-pip.py
+RUN python /tmp/get-pip.py
+
+WORKDIR /app
+
+# install test requirements
+COPY ./requirements /requirements
+RUN python -m pip install -r /requirements/test.txt
+
+# copy package
+COPY . /app

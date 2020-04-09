@@ -1,0 +1,15 @@
+# import base requirements
+-r base.txt
+
+# pypi deployment with travis requirements
+cryptography>=2.7
+PyYAML>=5.1
+
+# additional dev requirements
+bumpversion>=0.5.3
+coverage>=4.5.3
+flake8>=3.7.7
+mock>=2.0.0
+Sphinx>=2.1.0
+wheel>=0.33.4
+watchdog>=0.9.0
