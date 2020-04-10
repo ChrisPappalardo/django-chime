@@ -1,5 +1,2 @@
-
-click>=7.0
-
-pip>=19.1.1
-six>=1.12.0
+click==7.1.1
+git+https://github.com/CodeForPhilly/chime.git@7c3b1b52f960af2cdb065cc269b1507729abda0b#egg=penn_chime

@@ -1,10 +1,6 @@
 # import base requirements
 -r base.txt
 
-# pypi deployment with travis requirements
-cryptography>=2.7
-PyYAML>=5.1
-
 # additional dev requirements
 bumpversion>=0.5.3
 coverage>=4.5.3

@@ -17,11 +17,19 @@ with open('README.rst') as readme_file:
 with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
-requirements = ['Click>=6.0',]
+requirements = [
+    'click>=6.0',
+    'django>=2.2',
+    'penn_chime',
+]
 
 setup_requirements = []
 
 test_requirements = []
+
+dependency_links = [
+    'https://github.com/CodeForPhilly/chime/tarball/7c3b1b52f960af2cdb065cc269b1507729abda0b#egg=penn_chime',
+]
 
 setup(
     author="Chris Pappalardo",
@@ -37,10 +45,11 @@ setup(
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
     ],
+    dependency_links=dependency_links,
     description="COVID-19 Hospital Impact Model for Epidemics (CHIME) app for Django.",
     entry_points={
         'console_scripts': [
-            'django_chime=django_chime.cli:entry_point',
+            'chime=django_chime.cli:entry_point',
         ],
     },
     install_requires=requirements,

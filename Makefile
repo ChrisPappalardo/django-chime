@@ -29,7 +29,7 @@ BROWSER := python -c "$$BROWSER_PYSCRIPT"
 help:
 	@python -c "$$PRINT_HELP_PYSCRIPT" < $(MAKEFILE_LIST)
 
-clean: clean-build clean-pyc clean-test clean-docker
+clean: clean-build clean-pyc clean-test
 
 clean-build: ## remove build artifacts
 	rm -fr build/
@@ -50,7 +50,7 @@ clean-test: ## remove test and coverage artifacts
 	rm -fr htmlcov/
 	rm -fr .pytest_cache
 
-clean-docker: ## remove docker images and containers
+clean-docker: ## remove docker images and containers *DANGER*
 	-docker ps --all --quiet | xargs docker rm --force 2>/dev/null || true
 	-docker images --quiet | xargs docker rmi --force 2>/dev/null || true
 

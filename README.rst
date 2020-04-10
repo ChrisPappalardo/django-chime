@@ -2,7 +2,6 @@
 django-chime
 ============
 
-
 .. image:: https://img.shields.io/pypi/v/django_chime.svg
         :target: https://pypi.python.org/pypi/django_chime
 
@@ -13,15 +12,10 @@ django-chime
         :target: https://django-chime.readthedocs.io/en/latest/?badge=latest
         :alt: Documentation Status
 
-
-
-
 COVID-19 Hospital Impact Model for Epidemics (CHIME) app for Django.
-
 
 * Free software: MIT license
 * Documentation: https://django-chime.readthedocs.io.
-
 
 Features
 --------
@@ -31,7 +25,4 @@ Features
 Credits
 -------
 
-This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
-
-.. _Cookiecutter: https://github.com/audreyr/cookiecutter
-.. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+The CHIME model and source code is Copyright © 2020, The Trustees of the University of Pennsylvania and was released for public use under the MIT License. For more information, please visit the CHIME project on github at https://github.com/CodyForPhilly/chime.

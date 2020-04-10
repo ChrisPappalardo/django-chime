@@ -1,4 +1,4 @@
-FROM python:3
+FROM python:3.7
 ENV PYTHONUNBUFFERED 1
 ENV DEBIAN_FRONTEND noninteractive
 ENV TERM xterm
@@ -9,7 +9,7 @@ RUN apt-get update \
     && apt-get install -y apt-utils \
     && apt-get install -y curl git less man nano sudo wget \
     && apt-get install -y build-essential \
-    && apt-get install -y libssl-dev libffi-dev python-dev python3-dev
+    && apt-get install -y libssl-dev libffi-dev python3-dev
 
 # configure apt-utils (fixes warnings)
 RUN dpkg-reconfigure apt-utils
@@ -29,7 +29,7 @@ WORKDIR /app
 
 # install dev requirements
 COPY ./requirements /requirements
-RUN pip install -r /requirements/dev.txt
+RUN pip install -r /requirements/local.txt
 
 # copy entrypoint and make executable
 COPY ./compose/django_chime/entrypoint.sh /entrypoint.sh
