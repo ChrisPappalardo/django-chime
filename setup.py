@@ -20,15 +20,14 @@ with open('HISTORY.rst') as history_file:
 requirements = [
     'click>=6.0',
     'django>=2.2',
+    'djcorecap',
     'penn_chime',
 ]
 
-setup_requirements = []
+setup_requirements = [
+]
 
-test_requirements = []
-
-dependency_links = [
-    'https://github.com/CodeForPhilly/chime/tarball/7c3b1b52f960af2cdb065cc269b1507729abda0b#egg=penn_chime',
+test_requirements = [
 ]
 
 setup(
@@ -40,16 +39,13 @@ setup(
         'License :: OSI Approved :: MIT License',
         'Natural Language :: English',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.4',
-        'Programming Language :: Python :: 3.5',
-        'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
     ],
-    dependency_links=dependency_links,
-    description="COVID-19 Hospital Impact Model for Epidemics (CHIME) app for Django.",
+    description='COVID-19 Hospital Impact Model for Epidemics (CHIME) app for Django.',
     entry_points={
         'console_scripts': [
-            'chime=django_chime.cli:entry_point',
+            'django_chime=django_chime.cli:entry_point',
+            'penn_chime=penn_chime.cli:entry_point',
         ],
     },
     install_requires=requirements,
