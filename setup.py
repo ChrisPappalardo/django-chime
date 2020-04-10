@@ -21,7 +21,7 @@ requirements = [
     'click>=6.0',
     'django>=2.0',
     'djcorecap>=1.0.1',
-    'penn_chime',
+    'penn_chime @ git+https://github.com/CodeForPhilly/chime.git@7c3b1b52f960af2cdb065cc269b1507729abda0b#egg=penn_chime',
 ]
 
 setup_requirements = [

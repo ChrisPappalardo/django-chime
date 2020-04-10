@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+
+{% load djcorecap %}
+
+{% block headline %}
+<div class="text-secondary">
+  CHIME Apps
+</div>
+{% endblock headline %}
+
+{% block content_div_class %}col-8{% endblock content_div_class %}
+
+{% block section_content %}
+{% if not object_list %}
+<p>
+  <div class="alert alert-primary alert-dismissible fade show" role="alert">
+    <div class="row text-right">
+      <button
+        type="button"
+        class="close"
+        data-dismiss="alert"
+        aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <h4 class="alert-heading">
+      COVID-19 Hospital Impact Model for Epidemics (CHIME)
+    </h4>
+    <p>
+      This website was created to enable rapid configuration and deployment
+      of CHIME apps for healthcare service providers to use for estimating
+      new admissions, hospitalized census, and the number of Susceptible,
+      Infected, and Recovered persons (SIR) in a region.
+    </p>
+    <hr>
+    <p>
+      <h5><u>Step 1: Create a new CHIME app</u></h5>
+      <p>
+        Click the "Create App" button below to get started.
+      </p>
+      <h5><u>Step 2: Enter your assumptions</u></h5>
+      <p>
+        Enter your hospital parameters (regional population, market share, etc.),
+        spread and contact parameters, and severity assumptions.  Your inputs
+        will be stored and used to generate a custom instance of the CHIME model.
+      </p>
+      <h5><u>Step 3: Share your app</u></h5>
+      <p>
+        Once generated, your app will have a unique web address for you to
+        share with others.  Or you can mark your app as private, and only
+        you will be able to access it.
+      </p>
+      <h5><u>Step 4: Update your assumptions</u></h5>
+      <p>
+        As the COVID19 pandemic evolves, so will your assumptions.  You can
+        edit them at any time, and they will be used to re-generate your
+        CHIME projections.
+      </p>
+      <p>
+        Need more help? <a href="mailto:{{ contact }}">Contact us</a>!
+      </p>
+    </p>
+  </div>
+</p>
+<p>
+  <a
+    class="btn btn-block btn-lg btn-outline-primary"
+    href="{% url 'django_chime:create' %}?next={{ request.path }}"
+    role="button">
+    <b class="text-uppercase">create app</b>
+  </a>
+</p>
+{% endif %}
+<table class="table table-responsive-md table-hover text-center">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Created</th>
+      {% if object_list %}
+      <th scope="col">
+        <a href="{% url 'django_chime:create' %}?next={{ request.path }}">
+          <i class="far fa-plus-square" aria-hidden="true"></i>
+        </a>
+      </th>
+      {% else %}
+      <th scope="col"></th>
+      {% endif %}
+    </tr>
+  </thead>
+  <tbody>
+    {% for c in object_list %}
+    <tr
+      onclick="window.location.assign('{% url 'django_chime:update' c.id %}');">
+      <th scope="row">{{ c.short_id }}</th>
+      <td>{{ c.name }}</td>
+      <td>{{ c.created }}</td>
+      <td>
+        <a href="{% url 'django_chime:delete' c.id %}?next={{ request.path }}">
+          <i class="far fa-trash-alt" aria-hidden="true"></i>
+        </a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock section_content %}

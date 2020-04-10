@@ -8,12 +8,9 @@ test
 unit tests for django_chime package
 '''
 
-
-
 import unittest
 from click.testing import CliRunner
 
-from django_chime import django_chime
 from django_chime import cli
 
 

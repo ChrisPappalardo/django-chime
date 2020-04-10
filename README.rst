@@ -17,6 +17,7 @@ COVID-19 Hospital Impact Model for Epidemics (CHIME) app for Django.
 * Free software: MIT license
 * Documentation: https://django-chime.readthedocs.io.
 
+
 Features
 --------
 
@@ -25,6 +26,67 @@ Features
 * Integrates with Django's user and auth infrastructure for privacy and security
 * Fast and lightweight platform allows hosting many models on the same website
 * Built using the latest `UPenn CHIME model <https://github.com/CodeForPhilly/chime>`_
+
+
+Quickstart
+----------
+
+Installation
+~~~~~~~~~~~~
+
+Install the package from github using pip:
+
+.. code-block:: console
+
+   $ pip install git+https://github.com/ChrisPappalardo/django-chime.git
+
+Or you can include it in your requirements file like so:
+
+.. code-block:: none
+
+   git+https://github.com/ChrisPappalardo/django-chime.git
+
+Configuration
+~~~~~~~~~~~~~
+
+You will need to add the `django_chime` application to the `INSTALLED_APPS` setting of
+your project's `settings.py` file:
+
+.. code-block:: python
+
+   INSTALLED_APPS = (
+       ...
+       'django_chime',
+   )
+
+This will make the models, views, and templates available in your project.
+
+Views
+~~~~~
+
+To allow users to access the `django_chime` views, you will need to add a path
+declaration to `urlpatterns` in your project `urls.py` like so:
+
+.. code-block:: python
+
+   from django_chime.views import ChimeSiteView
+
+   ...
+
+   path(
+       "<uuid:pk>/",
+       ChimeSiteView.as_view(),
+       name='site',
+   ),
+
+   path(
+       "chime/",
+       include("django_chime.urls"),
+   ),
+
+Once logged in, users can navigate to `/chime/` to create and configure their
+CHIME models.  Once created, the CHIME models are visible without authentication
+at `/<ID of CHIME model>/`.
 
 Credits
 -------

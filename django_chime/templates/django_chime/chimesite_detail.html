@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{% load djcorecap crispy_forms_tags humanize %}
+
+{% block external_css %}
+{{ block.super }}
+<!-- Bootstrap-Table  -->
+<link
+  href="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.css"
+  rel="stylesheet">
+{% endblock external_css %}
+
+{% block navbar %}
+{% if user.is_authenticated %}
+{{ block.super }}
+{% endif %}
+{% endblock navbar %}
+
+{% block headline %}
+<div class="text-secondary">{{ object.name }}</div>
+{% endblock headline %}
+
+{% block content_div_class %}col-8{% endblock content_div_class %}
+
+{% block section_content %}
+{% include 'django_chime/disclaimer.html' %}
+{% for g in groups %}
+{% if not forloop.first %}<hr>{% endif %}
+<p>
+  <h3 class="text-primary">{{ g.title }}</h3>
+</p>
+<p>
+  <div class="container" id="{{ g.id }}-chart"></div>
+</p>
+<p>
+  <table
+    id="{{ g.id }}-table"
+    data-search="true"
+    data-show-fullscreen="true"
+    data-show-columns="true"
+    data-show-columns-toggle-all="true"
+    data-show-export="true"
+    data-minimum-count-columns="2">
+  </table>
+</p>
+{% endfor %}
+{% endblock section_content %}
+
+{% block external_javascript %}
+{{ block.super }}
+
+<!-- Bootstrap-Table -->
+<script
+  src="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.js"></script>
+<script
+  src="https://unpkg.com/tableexport.jquery.plugin/tableExport.min.js"></script>
+<script
+  src="https://unpkg.com/tableexport.jquery.plugin/libs/jsPDF/jspdf.min.js"></script>
+<script
+  src="https://unpkg.com/tableexport.jquery.plugin/libs/jsPDF-AutoTable/jspdf.plugin.autotable.js"></script>
+<script
+  src="https://unpkg.com/bootstrap-table@1.16.0/dist/extensions/export/bootstrap-table-export.min.js"></script>
+
+<!-- Altair / Vega -->
+<script
+  src="https://cdn.jsdelivr.net/npm/vega@5.9.0"></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/vega-lite@4.0.2"></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/vega-embed@6.2.1"></script>
+{% endblock external_javascript %}
+
+{% block project_javascript %}
+{{ block.super }}
+
+{% for g in groups %}
+<script>
+ var {{ g.id }}_data = {{ g.chart|safe }};
+ vegaEmbed('#{{ g.id }}-chart', {{ g.id }}_data);
+
+ $('#{{ g.id }}-table').bootstrapTable({
+   height: 550,
+   columns: {{ g.columns|safe }},
+   data: {{ g.data|safe }},
+ });
+</script>
+{% endfor %}
+{% endblock project_javascript %}

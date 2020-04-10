@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% load djcorecap crispy_forms_tags %}
+
+{% block headline %}
+<div class="text-secondary">Delete CHIME Site</div>
+{% endblock headline %}
+
+{% block section_content %}
+<table class="table table-responsive-md table-hover text-center">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Created</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">{{ object.short_id }}</th>
+      <td>{{ object.name }}</td>
+      <td>{{ object.created }}</td>
+    </tr>
+  </tbody>
+</table>
+<form method="POST">
+  {% csrf_token %}
+  <input class="btn btn-primary" type="submit" name="submit" value="Delete">
+  <a class="btn btn-secondary" href="{{ request.GET.next }}">Cancel</a>
+</form>
+{% endblock section_content %}

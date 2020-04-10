@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% load djcorecap crispy_forms_tags %}
+
+{% block headline %}
+<div class="text-secondary">
+  {% if 'update' in request.path %}Update CHIME App{% else %}Create CHIME App{% endif %}
+</div>
+{% endblock headline %}
+
+{% block content_div_class %}col-8{% endblock content_div_class %}
+
+{% block section_content %}
+{% include 'django_chime/disclaimer.html' %}
+{% if object %}
+<p>
+  <a
+    class="btn btn-block btn-primary"
+    href="{% url 'site' object.id %}"
+    target="_blank"
+    role="button">
+    <b>Your app is live at {% url 'site' object.id %}</b>
+  </a>
+</p>
+{% endif %}
+{% crispy form %}
+{% endblock section_content %}
