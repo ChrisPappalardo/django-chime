@@ -19,8 +19,8 @@ with open('HISTORY.rst') as history_file:
 
 requirements = [
     'click>=6.0',
-    'django>=2.2',
-    'djcorecap',
+    'django>=2.0',
+    'djcorecap>=1.0.1',
     'penn_chime',
 ]
 
