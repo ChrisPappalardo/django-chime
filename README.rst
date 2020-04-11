@@ -2,11 +2,11 @@
 django-chime
 ============
 
-.. image:: https://img.shields.io/pypi/v/django_chime.svg
-        :target: https://pypi.python.org/pypi/django_chime
+.. image:: https://img.shields.io/pypi/v/django-chime.svg
+        :target: https://pypi.python.org/pypi/django-chime
 
-.. image:: https://img.shields.io/travis/ChrisPappalardo/django_chime.svg
-        :target: https://travis-ci.org/ChrisPappalardo/django_chime
+.. image:: https://img.shields.io/travis/ChrisPappalardo/django-chime.svg
+        :target: https://travis-ci.org/ChrisPappalardo/django-chime
 
 .. image:: https://readthedocs.org/projects/django-chime/badge/?version=latest
         :target: https://django-chime.readthedocs.io/en/latest/?badge=latest
