@@ -17,6 +17,11 @@ COVID-19 Hospital Impact Model for Epidemics (CHIME) app for Django.
 * Free software: MIT license
 * Documentation: https://django-chime.readthedocs.io.
 
+Check out a live demo of django-chime at
+`https://chime.pappanaka.com <https://chime.pappanaka.com>`_!  Register for an
+account (it's free - you just need to confirm an email address) and create your
+custom CHIME app instance in minutes.
+
 
 Features
 --------
