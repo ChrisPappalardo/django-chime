@@ -49,8 +49,8 @@ Or you can include it in your requirements file like so:
 Configuration
 ~~~~~~~~~~~~~
 
-You will need to add the `django_chime` application to the `INSTALLED_APPS` setting of
-your project's `settings.py` file:
+You will need to add the :literal:`django_chime` application to the
+:literal:`INSTALLED_APPS` setting of your project's :literal:`settings.py` file:
 
 .. code-block:: python
 
@@ -72,8 +72,8 @@ You will also need to migrate your database to use the django-chime models:
 Views
 ~~~~~
 
-To allow users to access the `django_chime` views, you will need to add a path
-declaration to `urlpatterns` in your project `urls.py` like so:
+To allow users to access the django-chime views, you will need to add a path
+declaration to :literal:`urlpatterns` in your project :literal:`urls.py` like so:
 
 .. code-block:: python
 
@@ -92,9 +92,47 @@ declaration to `urlpatterns` in your project `urls.py` like so:
        include("django_chime.urls"),
    ),
 
-Once logged in, users can navigate to `/chime/` to create and configure their
+Once logged in, users can navigate to :literal:`/chime/` to create and configure their
 CHIME models.  Once created, the CHIME models are visible without authentication
-at `/<ID of CHIME model>/`.
+at :literal:`/<ID of CHIME model>/`.
+
+To use the templates that come with django-chime, you will need to add the following
+blocks to your project base template :literal:`base.html`:
+
+.. code-block:: jinja
+
+   ...
+
+   {% block external_css %}
+   {% endblock external_css %}
+
+   ...
+
+   {% block headline %}
+   {% endblock headline %}
+
+   ...
+
+   {% block section_content %}
+   {% endblock section_content %}
+
+   ...
+
+   {% block external_javascript %}
+   {% endblock external_javascript %}
+
+   {% block project_javascript %}
+   {% endblock project_javascript %}
+
+.. note::
+
+   You will need to add the css blocks to the :literal:`<head>` section and the
+   javascript blocks to the *bottom* of the :literal:`<body>` section of your
+   base template.
+
+As an alternative, try using the base template from
+`djcorecap <https://github.com/ChrisPappalardo/djcorecap>`_, as the base for
+your project, it's awesome!
 
 
 Credits
