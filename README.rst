@@ -86,16 +86,24 @@ declaration to :literal:`urlpatterns` in your project :literal:`urls.py` like so
 
    ...
 
-   path(
-       "<uuid:pk>/",
-       ChimeSiteView.as_view(),
-       name='site',
-   ),
+   urlpatterns = [
 
-   path(
-       "chime/",
-       include("django_chime.urls"),
-   ),
+       ...
+
+       # django-chime deployed models view (authentication optional)
+       path(
+           '<uuid:pk>/',
+           ChimeSiteView.as_view(),
+           name='site',
+       ),
+
+       # django-chime model management view (requires authentication)
+       path(
+           'chime/',
+           include("django_chime.urls"),
+       ),
+
+       ...
 
 Once logged in, users can navigate to :literal:`/chime/` to create and configure their
 CHIME models.  Once created, the CHIME models are visible without authentication
