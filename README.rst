@@ -44,7 +44,7 @@ Or you can include it in your requirements file like so:
 
 .. code-block:: none
 
-   git+https://github.com/ChrisPappalardo/django-chime.git
+   git+https://github.com/ChrisPappalardo/django-chime.git@master#egg=django-chime
 
 Configuration
 ~~~~~~~~~~~~~
@@ -55,11 +55,19 @@ your project's `settings.py` file:
 .. code-block:: python
 
    INSTALLED_APPS = (
+
        ...
+
        'django_chime',
    )
 
 This will make the models, views, and templates available in your project.
+
+You will also need to migrate your database to use the django-chime models:
+
+.. code-block:: console
+
+   $ python manage.py migrate
 
 Views
 ~~~~~
@@ -87,6 +95,7 @@ declaration to `urlpatterns` in your project `urls.py` like so:
 Once logged in, users can navigate to `/chime/` to create and configure their
 CHIME models.  Once created, the CHIME models are visible without authentication
 at `/<ID of CHIME model>/`.
+
 
 Credits
 -------
