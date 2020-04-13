@@ -2,13 +2,9 @@
 
 {% load djcorecap %}
 
-{% block headline %}
-<div class="text-secondary">
-  CHIME Apps
-</div>
-{% endblock headline %}
+{% block headline %}CHIME Apps{% endblock headline %}
 
-{% block content_div_class %}col-8{% endblock content_div_class %}
+{% block content_div_class %}col-12 col-md-8{% endblock content_div_class %}
 
 {% block section_content %}
 {% if not object_list %}

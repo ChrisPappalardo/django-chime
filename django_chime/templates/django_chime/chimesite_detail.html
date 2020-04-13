@@ -16,11 +16,9 @@
 {% endif %}
 {% endblock navbar %}
 
-{% block headline %}
-<div class="text-secondary">{{ object.name }}</div>
-{% endblock headline %}
+{% block headline %}{{ object.name }}{% endblock headline %}
 
-{% block content_div_class %}col-8{% endblock content_div_class %}
+{% block content_div_class %}col-12 col-md-8{% endblock content_div_class %}
 
 {% block section_content %}
 {% include 'django_chime/disclaimer.html' %}
