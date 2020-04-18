@@ -2,14 +2,19 @@
 # -*- coding: utf-8 -*-
 
 '''
-Unit tests for the models module in the django_chime package
-----
+
+tests/test_models
+-----------------
+
+unit tests for django_chime models
 '''
 
 import unittest
 from uuid import UUID
+
+from penn_chime.model.parameters import Parameters
+
 from django_chime.models import ChimeSite
-from penn_chime.models import Parameters
 from django.utils import timezone
 
 

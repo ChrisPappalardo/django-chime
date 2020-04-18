@@ -13,4 +13,4 @@ __version__ = '0.2.2'
 
 
 # set penn_chime log level to something less chatty
-logging.getLogger('penn_chime.models').setLevel(logging.WARNING)
+logging.getLogger('penn_chime.model.sir').setLevel(logging.WARNING)

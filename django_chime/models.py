@@ -28,7 +28,7 @@ from django.db.models import (
 from django.utils import timezone
 
 from penn_chime.constants import EPSILON
-from penn_chime.parameters import Parameters, Disposition
+from penn_chime.model.parameters import Parameters, Disposition
 
 from .core import ShortID
 

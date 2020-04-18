@@ -8,13 +8,15 @@ Unit tests for the core module in the django_chime package
 
 import unittest
 from unittest.mock import Mock
+
+from penn_chime.model.sir import Sir
+
 from django_chime.core import (
     is_number,
     get_chime_model,
     build_charts,
     build_tables,
 )
-from penn_chime.models import SimSirModel
 from django_chime.models import ChimeSite
 
 
@@ -53,10 +55,10 @@ class TestDjango_chime_core(unittest.TestCase):
 
     def test_get_chime_model(self):
         '''
-        Tests if the get_chime_model function returns a SimSirModel
+        Tests if the get_chime_model function returns a Sir model
         '''
 
-        self.assertIsInstance(self.chime_model, SimSirModel)
+        self.assertIsInstance(self.chime_model, Sir)
 
     def test_get_chime_model_raises_exception(self):
         '''

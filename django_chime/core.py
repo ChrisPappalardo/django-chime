@@ -10,14 +10,14 @@ core functions for the django-chime app
 import altair as alt
 import streamlit as st
 
-from penn_chime.charts import (
+from penn_chime.view.charts import (
     build_admits_chart,
     build_census_chart,
     build_sim_sir_w_date_chart,
     build_table,
 )
-from penn_chime.parameters import Parameters
-from penn_chime.models import SimSirModel
+from penn_chime.model.parameters import Parameters
+from penn_chime.model.sir import Sir
 
 
 class ShortID(object):
@@ -55,7 +55,7 @@ def get_chime_model(parameters):
         t = type(parameters)
         raise TypeError(f'parameters must be a Parameters object not {t}')
 
-    return SimSirModel(parameters)
+    return Sir(parameters)
 
 
 def build_charts(model, width='container', padding={'right': 50}):
