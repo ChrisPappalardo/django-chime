@@ -7,7 +7,6 @@ django_chime/models
 models for the django-chime app
 '''
 
-import datetime as dt
 from uuid import uuid4
 
 from django.contrib.auth import get_user_model
@@ -18,7 +17,6 @@ from django.db.models import (
     CharField,
     DateField,
     DateTimeField,
-    FileField,
     FloatField,
     ForeignKey,
     IntegerField,

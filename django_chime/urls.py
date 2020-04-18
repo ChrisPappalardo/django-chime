@@ -40,7 +40,7 @@ urlpatterns = [
         name='delete',
     ),
 
-    path (
+    path(
         'update/<uuid:pk>/',
         ChimeSiteUpdateView.as_view(),
         name='update',

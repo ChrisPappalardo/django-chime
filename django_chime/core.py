@@ -8,7 +8,6 @@ core functions for the django-chime app
 '''
 
 import altair as alt
-import streamlit as st
 
 from penn_chime.view.charts import (
     build_admits_chart,
