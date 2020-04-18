@@ -105,7 +105,7 @@ class ChimeSite(ShortID, Model):
     )
     mitigation_date = DateField(
         blank=True,
-        default=timezone.now,
+        default=timezone.localdate,
         help_text='Date social distancing measures went into effect',
     )
     relative_contact_rate = FloatField(
@@ -145,7 +145,7 @@ class ChimeSite(ShortID, Model):
             mitigation_date = None
 
         return Parameters(
-            current_date=timezone.now().date(),
+            current_date=timezone.localdate(),
             population=self.population,
             current_hospitalized=self.current_hospitalized,
             date_first_hospitalized=self.date_first_hospitalized,

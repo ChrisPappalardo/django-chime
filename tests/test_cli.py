@@ -2,10 +2,8 @@
 # -*- coding: utf-8 -*-
 
 '''
-test
+Unit tests for the cli module in the django_chime package
 ----
-
-unit tests for django_chime package
 '''
 
 import unittest
@@ -14,7 +12,7 @@ from click.testing import CliRunner
 from django_chime import cli
 
 
-class TestDjango_chime(unittest.TestCase):
+class TestDjango_chime_cli(unittest.TestCase):
 
     def setUp(self):
         self.runner = CliRunner()

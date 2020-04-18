@@ -7,7 +7,7 @@ services:
   django_chime:
     build:
       context: .
-      dockerfile: ./compose/django_chime/Dockerfile
+      dockerfile: ./compose/django_chime/Dockerfile-test
     environment:
       - LC_ALL=C.UTF-8
       - LANG=C.UTF-8
