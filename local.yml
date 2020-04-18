@@ -1,8 +1,5 @@
 version: '3'
 
-volumes:
-  data_dev: {}
-
 services:
   django_chime:
     build:
@@ -12,10 +9,6 @@ services:
       - LC_ALL=C.UTF-8
       - LANG=C.UTF-8
       - ENVTYPE=dev
-    #env-file:
-    #  - ./.envs/.dev/.django_chime
     image: django_chime:dev
     volumes:
       - .:/app
-      - data_dev:/data
-    #command: /start

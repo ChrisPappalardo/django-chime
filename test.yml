@@ -1,8 +1,5 @@
 version: '3'
 
-volumes:
-  data_test: {}
-
 services:
   django_chime:
     build:
@@ -12,5 +9,3 @@ services:
       - LC_ALL=C.UTF-8
       - LANG=C.UTF-8
     image: django_chime:test
-    volumes:
-      - data_test:/data
