@@ -19,9 +19,10 @@ with open('HISTORY.rst') as history_file:
 
 requirements = [
     'click>=6.0',
-    'django>=2.0',
+    'django>=1.8',
+    'django-crispy-forms>=1.7.2',
     'djcorecap>=1.0.1',
-    'penn_chime @ git+https://github.com/CodeForPhilly/chime.git@7c3b1b52f960af2cdb065cc269b1507729abda0b#egg=penn_chime',
+    'penn_chime @ git+https://github.com/CodeForPhilly/chime.git@a8c21bcca1459aa5d73b3f9b5b9c73ebd7f22ab6#egg=penn_chime',
 ]
 
 setup_requirements = [

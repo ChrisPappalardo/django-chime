@@ -9,3 +9,4 @@ services:
       - LC_ALL=C.UTF-8
       - LANG=C.UTF-8
     image: django_chime:test
+    command: tox
