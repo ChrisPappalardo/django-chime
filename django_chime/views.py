@@ -97,7 +97,7 @@ class ChimeSiteListView(BaseContextMixin, ListView):
     model = ChimeSite
 
     def get_queryset(self):
-        return self.objects.filter(user=self.request.user)
+        return self.model.objects.filter(user=self.request.user)
 
 
 @is_logged_in
@@ -133,7 +133,7 @@ class ChimeSiteDeleteView(SuccessMixin, DeleteView):
     success_message = 'Successfully deleted CHIME app.'
 
     def get_queryset(self):
-        return self.objects.filter(user=self.request.user)
+        return self.model.objects.filter(user=self.request.user)
 
     def delete(self, request, *args, **kwargs):
         # TODO: is this necessary?
@@ -152,4 +152,4 @@ class ChimeSiteUpdateView(BaseContextMixin, SuccessMixin, UpdateView):
     success_message = 'Successfully updated CHIME app.'
 
     def get_queryset(self):
-        return self.objects.filter(user=self.request.user)
+        return self.model.objects.filter(user=self.request.user)
