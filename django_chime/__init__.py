@@ -9,7 +9,7 @@ import logging
 
 __author__ = 'Chris Pappalardo'
 __email__ = 'cpappala@gmail.com'
-__version__ = '0.3.0'
+__version__ = '0.3.1'
 
 
 # set penn_chime log level to something less chatty
