@@ -11,7 +11,7 @@ unit tests for django_chime views
 
 import logging
 
-from django.test import Client, TestCase
+from django.test import TestCase
 from django.contrib.auth import get_user_model
 
 from django_chime.models import ChimeSite

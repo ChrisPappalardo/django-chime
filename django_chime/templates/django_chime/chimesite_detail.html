@@ -23,9 +23,11 @@
 {% block section_content %}
 {% include 'django_chime/disclaimer.html' %}
 {% for g in groups %}
-{% if not forloop.first %}<hr>{% endif %}
+{% if not forloop.first %}<br>{% endif %}
+<hr>
 <p>
   <h3 class="text-primary">{{ g.title }}</h3>
+  <h5 class="text-secondary">{{ g.desc }}</h5>
 </p>
 <p>
   <div class="container" id="{{ g.id }}-chart"></div>

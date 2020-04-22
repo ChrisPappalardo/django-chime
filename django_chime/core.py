@@ -91,10 +91,22 @@ def build_tables(model, labels):
 
     tables = list()
 
-    for title, attr in (
-            ('New Admissions', 'admits_floor_df'),
-            ('Admitted Patients (Census)', 'census_floor_df'),
-            ('Susceptible, Infected, and Recovered', 'sim_sir_w_date_floor_df'),
+    for title, desc, attr in (
+            (
+                'New Admissions',
+                'Projected number of daily COVID-19 admissions.',
+                'admits_floor_df'
+            ),
+            (
+                'Admitted Patients (Census)',
+                'Projected census of COVID-19 patients, accounting for arrivals and discharges.',  # noqa: E501
+                'census_floor_df',
+            ),
+            (
+                'Susceptible, Infected, and Recovered',
+                'The number of susceptible, infected, and recovered individuals in the hospital catchment region at any given moment.',  # noqa: E501
+                'sim_sir_w_date_floor_df',
+            ),
     ):
 
         df = getattr(model, attr)
@@ -104,6 +116,7 @@ def build_tables(model, labels):
 
         tables.append({
             'title': title,
+            'desc': desc,
             'id': attr,
             'columns': columns,
             'data': data.to_json(orient='records'),
