@@ -2,8 +2,9 @@
 # -*- coding: utf-8 -*-
 
 '''
-Unit tests for the core module in the django_chime package
-----
+tests/test_core
+-----------------
+unit tests for django_chime core
 '''
 
 import unittest
@@ -101,3 +102,12 @@ class TestDjango_chime_core(unittest.TestCase):
             self.assertIsNotNone(table.get('id'))
             self.assertIsNotNone(table.get('columns'))
             self.assertIsNotNone(table.get('data'))
+
+    def test_short_id(self):
+        '''
+        Tests the short_id function return value
+        '''
+
+        site_model = ChimeSite()
+        self.assertEqual(len(site_model.short_id), 8)
+        self.assertTrue(site_model.short_id in str(site_model.id))
